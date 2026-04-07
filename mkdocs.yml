@@ -1,0 +1,97 @@
+site_name: Play-Cricket API
+site_description: Developer documentation for the Play-Cricket REST API
+site_url: https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/
+repo_url: https://github.com/england-and-wales-cricket-board/play-cricket-api-docs
+repo_name: england-and-wales-cricket-board/play-cricket-api-docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs               # Top-level sections as tabs
+    - navigation.tabs.sticky        # Tabs stay visible when scrolling
+    - navigation.sections           # Render sections in the sidebar
+    - navigation.expand             # Expand sidebar sections by default
+    - navigation.top                # Back-to-top button
+    - navigation.indexes            # Allow section index pages
+    - search.suggest                # Search autocomplete
+    - search.highlight              # Highlight search terms in results
+    - content.code.copy             # Copy button on all code blocks
+    - content.action.edit           # Edit page on GitHub link
+    - toc.follow                    # Sidebar TOC follows scroll position
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition                      # !!! note / warning / tip blocks
+  - attr_list                       # Add HTML attributes to elements
+  - md_in_html                      # Markdown inside HTML (used for grid cards on home page)
+  - tables
+  - toc:
+      permalink: true               # Anchor links on headings
+      title: On this page
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite           # Inline code highlighting
+  - pymdownx.superfences            # Fenced code blocks with language support
+  - pymdownx.tabbed:
+      alternate_style: true         # Tabbed content blocks
+  - pymdownx.details                # Collapsible sections
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Authentication: authentication.md
+      - Data Model: data-model.md
+      - Common Patterns: common-patterns.md
+      - Error Handling: error-handling.md
+  - API Reference:
+      - Organisation:
+          - County Cricket Boards: reference/county-cricket-boards.md
+          - Clubs: reference/clubs.md
+          - League Sites: reference/league-sites.md
+      - Teams & Players:
+          - Teams: reference/teams.md
+          - Players: reference/players.md
+          - Teams in Division: reference/teams-in-division.md
+      - Competitions:
+          - Divisions & Cups: reference/competitions.md
+      - Matches:
+          - Match Summary: reference/match-summary.md
+          - Result Summary: reference/result-summary.md
+          - Match Detail: reference/match-detail.md
+      - Standings:
+          - League Table: reference/league-table.md
+  - Appendices:
+      - Enum Values: appendices/enum-values.md
+      - Date Formats: appendices/date-formats.md
+      - ID Lifecycle: appendices/id-lifecycle.md
+      - Changelog: appendices/changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/england-and-wales-cricket-board
