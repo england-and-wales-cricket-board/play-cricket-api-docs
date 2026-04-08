@@ -1,0 +1,100 @@
+/* ============================================================
+   Play-Cricket brand colours — MkDocs Material overrides
+   Primary Blue : #00699F
+   Dark Navy    : #0B4166
+   Coral        : #F26A5C
+   Green        : #7BC258
+   ============================================================ */
+
+/* Google Fonts — Barlow (body) + JetBrains Mono (code) */
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ----------------------------------------------------------
+   Light mode
+   ---------------------------------------------------------- */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #00699F;
+  --md-primary-fg-color--light: #3391bc;
+  --md-primary-fg-color--dark:  #0B4166;
+  --md-accent-fg-color:         #7BC258;
+  --md-accent-fg-color--transparent: rgba(123, 194, 88, 0.1);
+
+  /* Typeset links */
+  --md-typeset-a-color: #00699F;
+}
+
+/* ----------------------------------------------------------
+   Dark mode
+   ---------------------------------------------------------- */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #3391bc;
+  --md-primary-fg-color--light: #5aadd4;
+  --md-primary-fg-color--dark:  #00699F;
+  --md-accent-fg-color:         #7BC258;
+  --md-accent-fg-color--transparent: rgba(123, 194, 88, 0.1);
+
+  --md-typeset-a-color: #3391bc;
+}
+
+/* ----------------------------------------------------------
+   Admonitions — warning uses Coral, tip uses Green
+   ---------------------------------------------------------- */
+:root {
+  --md-admonition-icon--warning: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2 1 21z"/></svg>');
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: #F26A5C;
+}
+
+.md-typeset .warning > .admonition-title,
+.md-typeset .warning > summary {
+  background-color: rgba(242, 106, 92, 0.12);
+}
+
+.md-typeset .warning > .admonition-title::before,
+.md-typeset .warning > summary::before {
+  background-color: #F26A5C;
+}
+
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-color: #7BC258;
+}
+
+.md-typeset .tip > .admonition-title,
+.md-typeset .tip > summary {
+  background-color: rgba(123, 194, 88, 0.12);
+}
+
+.md-typeset .tip > .admonition-title::before,
+.md-typeset .tip > summary::before {
+  background-color: #7BC258;
+}
+
+/* ----------------------------------------------------------
+   Typography
+   ---------------------------------------------------------- */
+body,
+.md-typeset {
+  font-family: "Barlow", sans-serif;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+}
+
+.md-typeset code,
+.md-typeset pre {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Nav tabs */
+.md-tabs {
+  background-color: #0B4166;
+}

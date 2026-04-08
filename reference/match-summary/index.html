@@ -1719,6 +1719,10 @@
 </span></code></pre></div></p>
 <hr />
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Always specify a season</p>
+<p>Without <code>season</code>, this endpoint returns fixtures across <strong>all seasons</strong> — potentially several thousand records on a league site. Always pass <code>season</code> unless you have a specific reason to retrieve the full historical dataset.</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -1744,8 +1748,8 @@
 <tr>
 <td><code>season</code></td>
 <td>string</td>
-<td>No*</td>
-<td>The season year, e.g. <code>2024</code>. Highly recommended — omitting this returns all fixtures across all seasons</td>
+<td><strong>Recommended</strong></td>
+<td>The season year, e.g. <code>2024</code>. Omitting this returns all fixtures across all seasons</td>
 </tr>
 <tr>
 <td><code>division_id</code></td>

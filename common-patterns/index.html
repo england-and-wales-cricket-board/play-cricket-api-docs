@@ -1904,16 +1904,22 @@
 <p>By default, unpublished matches are <strong>not returned</strong> by the API. Pass <code>include_unpublished=yes</code> to include them. Most applications will not need this.</p>
 <hr />
 <h2 id="always-specify-a-season">Always Specify a Season<a class="headerlink" href="#always-specify-a-season" title="Permanent link">&para;</a></h2>
-<p>On Match Summary and Result Summary, the <code>season</code> parameter is technically optional but <strong>strongly recommended</strong>. Omitting it will return fixtures across all seasons, which can run to thousands of records and significantly slow the response.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Good
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>GET /api/v2/matches.json?site_id=3540&amp;season=2024&amp;api_token=xxx
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>On Match Summary, <code>season</code> is optional but omitting it returns fixtures across <strong>all seasons</strong> — potentially several thousand records. On Result Summary, <code>season</code> is required, but a season-only request against a league site can still return 1,000+ records.</p>
+<p>Always pair <code>season</code> with at least one additional filter (<code>division_id</code>, <code>team_id</code>, or a date range) on any site with significant data volume.</p>
+</div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Good — season + division filter
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>GET /api/v2/matches.json?site_id=3540&amp;season=2024&amp;division_id=110530&amp;api_token=xxx
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a># Avoid — returns all fixtures for all seasons
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>GET /api/v2/matches.json?site_id=3540&amp;api_token=xxx
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a># Acceptable for a small club site
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>GET /api/v2/matches.json?site_id=3540&amp;season=2024&amp;api_token=xxx
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># Avoid — returns all fixtures for all seasons
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>GET /api/v2/matches.json?site_id=3540&amp;api_token=xxx
 </span></code></pre></div>
 <hr />
 <h2 id="large-result-sets">Large Result Sets<a class="headerlink" href="#large-result-sets" title="Permanent link">&para;</a></h2>
-<p>Some endpoint and parameter combinations can return very large responses. Be aware of these scenarios:</p>
 <table>
 <thead>
 <tr>
@@ -1923,20 +1929,20 @@
 </thead>
 <tbody>
 <tr>
-<td>Result Summary without filters (league site, full season)</td>
+<td>Match Summary — no <code>season</code> on a league site</td>
+<td>Several thousand</td>
+</tr>
+<tr>
+<td>Result Summary — <code>season</code> only on a league site</td>
 <td>1,000+</td>
 </tr>
 <tr>
-<td>Result Summary without filters (club site, full season)</td>
+<td>Result Summary — <code>season</code> only on a club site</td>
 <td>100+</td>
-</tr>
-<tr>
-<td>Match Summary without a season on a large league site</td>
-<td>Several thousand</td>
 </tr>
 </tbody>
 </table>
-<p>Always apply the most specific filters you have available before making a request in production.</p>
+<p>Always apply the most specific filters available before making requests in production.</p>
 
 
 

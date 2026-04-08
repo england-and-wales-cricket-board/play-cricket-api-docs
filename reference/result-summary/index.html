@@ -1796,6 +1796,10 @@
 </span></code></pre></div></p>
 <hr />
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Filter your requests</p>
+<p><code>season</code> is required, but on its own it can still return 1,000+ records on a league site or 100+ on a club site. Always pair it with at least one of <code>division_id</code>, <code>team_id</code>, a <code>competition_type</code>, or a date range. Unfiltered requests against large sites will be slow and may time out.</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -1827,8 +1831,8 @@
 <tr>
 <td><code>division_id</code></td>
 <td>integer</td>
-<td>No</td>
-<td>Filter to a specific division</td>
+<td><strong>Recommended</strong></td>
+<td>Filter to a specific division. Strongly advised on league sites</td>
 </tr>
 <tr>
 <td><code>cup_id</code></td>
@@ -1839,8 +1843,8 @@
 <tr>
 <td><code>team_id</code></td>
 <td>integer</td>
-<td>No</td>
-<td>Filter to a specific team</td>
+<td><strong>Recommended</strong></td>
+<td>Filter to a specific team. Strongly advised on club sites</td>
 </tr>
 <tr>
 <td><code>competition_type</code></td>
