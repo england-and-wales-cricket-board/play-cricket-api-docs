@@ -4,7 +4,7 @@ Returns a list of teams associated with a specific club or CCB site.
 
 **Endpoint**
 ```
-GET https://play-cricket.com/api/v2/sites/{site_id}/teams.json
+GET https://www.play-cricket.com/api/v2/sites/{site_id}/teams.json
 ```
 
 Replace `{site_id}` with the numeric ID of the Play-Cricket site you want to query.
@@ -26,12 +26,12 @@ Replace `{site_id}` with the numeric ID of the Play-Cricket site you want to que
 
 **All teams for a club site:**
 ```
-GET https://play-cricket.com/api/v2/sites/3540/teams.json?api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/sites/3540/teams.json?api_token=YOUR_TOKEN
 ```
 
 **Teams updated within a date range:**
 ```
-GET https://play-cricket.com/api/v2/sites/3540/teams.json?api_token=YOUR_TOKEN&from_entry_date=01/01/2024&end_entry_date=01/04/2024
+GET https://www.play-cricket.com/api/v2/sites/3540/teams.json?api_token=YOUR_TOKEN&from_entry_date=01/01/2024&end_entry_date=01/04/2024
 ```
 
 ---

@@ -4,7 +4,7 @@ Returns completed matches (and matches in progress) with result, points, and inn
 
 **Endpoint**
 ```
-GET https://play-cricket.com/api/v2/result_summary.json
+GET https://www.play-cricket.com/api/v2/result_summary.json
 ```
 
 ---
@@ -34,17 +34,17 @@ GET https://play-cricket.com/api/v2/result_summary.json
 
 **All results for a division on a specific match day:**
 ```
-GET https://play-cricket.com/api/v2/result_summary.json?site_id=534&season=2024&division_id=110530&from_match_date=07/09/2024&end_match_date=07/09/2024&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/result_summary.json?site_id=534&season=2024&division_id=110530&from_match_date=07/09/2024&end_match_date=07/09/2024&api_token=YOUR_TOKEN
 ```
 
 **All results updated in the last hour (polling for new results):**
 ```
-GET https://play-cricket.com/api/v2/result_summary.json?site_id=534&season=2024&from_entry_date=07/09/2024T14:00:00&end_entry_date=07/09/2024T15:00:00&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/result_summary.json?site_id=534&season=2024&from_entry_date=07/09/2024T14:00:00&end_entry_date=07/09/2024T15:00:00&api_token=YOUR_TOKEN
 ```
 
 **All results for a specific team in a season:**
 ```
-GET https://play-cricket.com/api/v2/result_summary.json?site_id=3540&season=2024&team_id=175868&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/result_summary.json?site_id=3540&season=2024&team_id=175868&api_token=YOUR_TOKEN
 ```
 
 ---

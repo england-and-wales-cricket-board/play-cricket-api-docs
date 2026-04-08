@@ -5,7 +5,7 @@
 Every request to the Play-Cricket API must include an `api_token` parameter. Requests without a valid token will be rejected.
 
 ```
-GET https://play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN
 ```
 
 ---
@@ -47,5 +47,5 @@ The token is always passed as a query string parameter:
 It can be combined with other parameters in any order:
 
 ```
-GET https://play-cricket.com/api/v2/matches.json?site_id=3540&season=2024&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/matches.json?site_id=3540&season=2024&api_token=YOUR_TOKEN
 ```

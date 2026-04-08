@@ -7,20 +7,24 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  logo: https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp
+  font:
+    text: Barlow
+    code: JetBrains Mono
   palette:
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -90,6 +94,9 @@ nav:
       - Date Formats: appendices/date-formats.md
       - ID Lifecycle: appendices/id-lifecycle.md
       - Changelog: appendices/changelog.md
+
+extra_css:
+  - stylesheets/extra.css
 
 extra:
   social:

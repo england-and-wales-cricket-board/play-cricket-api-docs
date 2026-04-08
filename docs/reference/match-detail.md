@@ -4,7 +4,7 @@ Returns the full scorecard for a single match, including team sheets, batting fi
 
 **Endpoint**
 ```
-GET https://play-cricket.com/api/v2/match_detail.json
+GET https://www.play-cricket.com/api/v2/match_detail.json
 ```
 
 ---
@@ -21,7 +21,7 @@ GET https://play-cricket.com/api/v2/match_detail.json
 ## Example Request
 
 ```
-GET https://play-cricket.com/api/v2/match_detail.json?match_id=5694618&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/match_detail.json?match_id=5694618&api_token=YOUR_TOKEN
 ```
 
 ---
@@ -35,6 +35,7 @@ The response structure is nested. A condensed representation is shown below with
   "match_details": [
     {
       "id": 5694618,
+      "match_id": "5694618",
       "status": "New",
       "published": "Yes",
       "last_updated": "07/09/2024",
@@ -249,6 +250,7 @@ Same as Result Summary, with these additional fields per team:
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `bonus_points_2nd_innings_together` | string | Combined bonus points for the second innings |
 | `bonus_points_2nd_innings_batting` | string | Batting bonus points for the second innings |
 | `bonus_points_2nd_innings_bowling` | string | Bowling bonus points for the second innings |
 
@@ -292,6 +294,7 @@ One entry per innings. Each innings contains three sub-arrays.
 | `declared` | boolean | Whether the innings was declared |
 | `revised_target_runs` | string | Revised target (e.g. Duckworth-Lewis) |
 | `revised_target_overs` | string | Revised overs target |
+| `revised_target_balls` | string | Revised balls target |
 
 #### Batting entries (`bat[]`)
 

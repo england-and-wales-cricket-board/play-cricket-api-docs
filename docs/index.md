@@ -15,7 +15,7 @@ All endpoints use **HTTP GET** requests and return **JSON**. The API is at versi
 
 **Base URL**
 ```
-https://play-cricket.com/api/v2/
+https://www.play-cricket.com/api/v2/
 ```
 
 !!! info "Access required"

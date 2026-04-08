@@ -4,7 +4,7 @@ Returns a list of players (members) associated with a specific club site.
 
 **Endpoint**
 ```
-GET https://play-cricket.com/api/v2/sites/{site_id}/players
+GET https://www.play-cricket.com/api/v2/sites/{site_id}/players
 ```
 
 Replace `{site_id}` with the numeric ID of the club's Play-Cricket site.
@@ -25,17 +25,17 @@ Replace `{site_id}` with the numeric ID of the club's Play-Cricket site.
 
 **Active squad members only (default):**
 ```
-GET https://play-cricket.com/api/v2/sites/3540/players?api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/sites/3540/players?api_token=YOUR_TOKEN
 ```
 
 **All members with any active role:**
 ```
-GET https://play-cricket.com/api/v2/sites/3540/players?api_token=YOUR_TOKEN&include_everyone=yes
+GET https://www.play-cricket.com/api/v2/sites/3540/players?api_token=YOUR_TOKEN&include_everyone=yes
 ```
 
 **Include members with historic squad roles:**
 ```
-GET https://play-cricket.com/api/v2/sites/3540/players?api_token=YOUR_TOKEN&include_historic=yes
+GET https://www.play-cricket.com/api/v2/sites/3540/players?api_token=YOUR_TOKEN&include_historic=yes
 ```
 
 ---

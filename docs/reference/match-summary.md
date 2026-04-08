@@ -6,7 +6,7 @@ This endpoint is primarily used at the start of a season to build a fixture list
 
 **Endpoint**
 ```
-GET https://play-cricket.com/api/v2/matches.json
+GET https://www.play-cricket.com/api/v2/matches.json
 ```
 
 ---
@@ -35,17 +35,17 @@ GET https://play-cricket.com/api/v2/matches.json
 
 **All fixtures for a club in a season:**
 ```
-GET https://play-cricket.com/api/v2/matches.json?site_id=3540&season=2024&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/matches.json?site_id=3540&season=2024&api_token=YOUR_TOKEN
 ```
 
 **Fixtures updated in a date range (for polling changes):**
 ```
-GET https://play-cricket.com/api/v2/matches.json?site_id=3540&season=2024&api_token=YOUR_TOKEN&from_entry_date=27/11/2024&end_entry_date=28/11/2024
+GET https://www.play-cricket.com/api/v2/matches.json?site_id=3540&season=2024&api_token=YOUR_TOKEN&from_entry_date=27/11/2024&end_entry_date=28/11/2024
 ```
 
 **League fixtures only for a specific division:**
 ```
-GET https://play-cricket.com/api/v2/matches.json?site_id=534&season=2024&division_id=110530&competition_type=League&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/matches.json?site_id=534&season=2024&division_id=110530&competition_type=League&api_token=YOUR_TOKEN
 ```
 
 ---
@@ -64,6 +64,7 @@ GET https://play-cricket.com/api/v2/matches.json?site_id=534&season=2024&divisio
       "league_id": "534",
       "competition_name": "Premier Division",
       "competition_id": "110530",
+      "division_id": "110530",
       "competition_type": "League",
       "match_type": "Limited Overs",
       "game_type": "Standard",
@@ -113,6 +114,7 @@ GET https://play-cricket.com/api/v2/matches.json?site_id=534&season=2024&divisio
 | `league_id` | string | ID of the league site |
 | `competition_name` | string | Name of the division or cup |
 | `competition_id` | string | ID of the competition (division or cup) |
+| `division_id` | string | ID of the specific division within the league. Empty for cups and friendlies. Note: division IDs are ephemeral — they change each season |
 | `competition_type` | string | `League`, `Cup`, or `Friendly` |
 | `match_type` | string | e.g. `Limited Overs`, `Declaration` |
 | `game_type` | string | e.g. `Standard` |

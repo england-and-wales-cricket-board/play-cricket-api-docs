@@ -4,7 +4,7 @@ Returns a list of clubs registered on Play-Cricket, with optional filtering by c
 
 **Endpoint**
 ```
-GET https://play-cricket.com/api/v2/clubs.json
+GET https://www.play-cricket.com/api/v2/clubs.json
 ```
 
 ---
@@ -24,17 +24,17 @@ GET https://play-cricket.com/api/v2/clubs.json
 
 **All clubs nationally:**
 ```
-GET https://play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN
 ```
 
 **Clubs in a specific county:**
 ```
-GET https://play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN&county_id=37
+GET https://www.play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN&county_id=37
 ```
 
 **Clubs updated in a date range (for polling changes):**
 ```
-GET https://play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN&from_entry_date=01/01/2024&end_entry_date=01/02/2024
+GET https://www.play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN&from_entry_date=01/01/2024&end_entry_date=01/02/2024
 ```
 
 ---

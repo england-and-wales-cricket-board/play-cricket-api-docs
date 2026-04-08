@@ -4,7 +4,7 @@ Returns a list of all teams competing in a specified division or cup.
 
 **Endpoint**
 ```
-GET https://play-cricket.com/api/v2/competition_teams.json
+GET https://www.play-cricket.com/api/v2/competition_teams.json
 ```
 
 ---
@@ -21,7 +21,7 @@ GET https://play-cricket.com/api/v2/competition_teams.json
 ## Example Request
 
 ```
-GET https://play-cricket.com/api/v2/competition_teams.json?id=69548&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v2/competition_teams.json?id=69548&api_token=YOUR_TOKEN
 ```
 
 ---
@@ -32,15 +32,15 @@ GET https://play-cricket.com/api/v2/competition_teams.json?id=69548&api_token=YO
 {
   "competition_teams": [
     {
-      "club_id": 1835,
+      "club_id": "1835",
       "club_name": "Chingford CC",
-      "team_id": 10001,
+      "team_id": "10001",
       "team_name": "2nd XI"
     },
     {
-      "club_id": 14793,
+      "club_id": "14793",
       "club_name": "Chingford Quackers CC",
-      "team_id": 23232,
+      "team_id": "23232",
       "team_name": "2nd XI"
     }
   ]
@@ -53,9 +53,9 @@ GET https://play-cricket.com/api/v2/competition_teams.json?id=69548&api_token=YO
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `club_id` | integer | Unique identifier for the club. Stable across seasons |
+| `club_id` | string | Unique identifier for the club. Stable across seasons |
 | `club_name` | string | Name of the club |
-| `team_id` | integer | Unique identifier for the team. Stable across seasons |
+| `team_id` | string | Unique identifier for the team. Stable across seasons |
 | `team_name` | string | The team designation (e.g. `1st XI`, `2nd XI`) |
 
 ---
