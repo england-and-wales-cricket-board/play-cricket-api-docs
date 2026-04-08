@@ -11,14 +11,17 @@ GET https://play-cricket.com/api/v2/result_summary.json
 
 ## Parameters
 
+!!! warning "Filter your requests"
+    `season` is required, but on its own it can still return 1,000+ records on a league site or 100+ on a club site. Always pair it with at least one of `division_id`, `team_id`, a `competition_type`, or a date range. Unfiltered requests against large sites will be slow and may time out.
+
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `api_token` | string | Yes | Your API authentication token |
 | `site_id` | integer | Yes | The ID of the club or league site |
 | `season` | string | Yes | The season year, e.g. `2024` |
-| `division_id` | integer | No | Filter to a specific division |
+| `division_id` | integer | **Recommended** | Filter to a specific division. Strongly advised on league sites |
 | `cup_id` | integer | No | Filter to a specific cup |
-| `team_id` | integer | No | Filter to a specific team |
+| `team_id` | integer | **Recommended** | Filter to a specific team. Strongly advised on club sites |
 | `competition_type` | string | No | Filter by competition type. Accepted values: `League`, `Cup`, `Friendly` |
 | `from_match_date` | string | No | Return only matches played on or after this date. Format: `dd/mm/yyyy`. Inclusive |
 | `end_match_date` | string | No | Return only matches played on or before this date. Format: `dd/mm/yyyy`. Inclusive |

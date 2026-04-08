@@ -13,11 +13,14 @@ GET https://play-cricket.com/api/v2/matches.json
 
 ## Parameters
 
+!!! warning "Always specify a season"
+    Without `season`, this endpoint returns fixtures across **all seasons** — potentially several thousand records on a league site. Always pass `season` unless you have a specific reason to retrieve the full historical dataset.
+
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `api_token` | string | Yes | Your API authentication token |
 | `site_id` | integer | Yes | The ID of the club or league site |
-| `season` | string | No* | The season year, e.g. `2024`. Highly recommended — omitting this returns all fixtures across all seasons |
+| `season` | string | **Recommended** | The season year, e.g. `2024`. Omitting this returns all fixtures across all seasons |
 | `division_id` | integer | No | Filter to a specific division |
 | `cup_id` | integer | No | Filter to a specific cup |
 | `team_id` | integer | No | Filter to a specific team |

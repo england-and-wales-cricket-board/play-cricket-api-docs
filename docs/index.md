@@ -8,6 +8,9 @@ hide:
 
 The Play-Cricket API provides read-only access to cricket data held within the Play-Cricket platform — fixtures, results, scorecards, league tables, clubs, teams, and players.
 
+!!! warning "Who this API is for"
+    Play-Cricket's API is intended for clubs and competitions to retrieve their own data from the platform for processing elsewhere. It is not available as a service for those looking to build products or applications using cricket data. For more info, [read here](https://play-cricket.ecb.co.uk/hc/en-us/articles/24640412683037-Play-Cricket-API-Access-for-commercial-non-profit-projects).
+
 All endpoints use **HTTP GET** requests and return **JSON**. The API is at version `v2`.
 
 **Base URL**

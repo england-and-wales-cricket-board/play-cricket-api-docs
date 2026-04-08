@@ -14,9 +14,10 @@ GET https://play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN
 
 API tokens are generated from within the Play-Cricket administration area of your club or league site.
 
-1. Log in to your Play-Cricket site as an administrator
-2. Navigate to **Admin → API Settings**
-3. Generate or copy your API token
+1. Read the details [here](https://play-cricket.ecb.co.uk/hc/en-us/articles/115004270145-Do-You-Have-an-API-to-Access-Play-Cricket-Data)
+2. Request your token from our help desk team
+3. Sign and return the API access agreement
+4. Receive your token
 
 Treat your API token like a password — do not expose it in client-side JavaScript or commit it to public source code repositories.
 

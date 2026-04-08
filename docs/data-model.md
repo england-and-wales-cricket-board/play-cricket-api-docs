@@ -37,7 +37,7 @@ A **site** in Play-Cricket corresponds to either a **club** or a **league (compe
 - Club sites manage their own teams, players, and friendly fixtures
 - League sites manage competitions, divisions, cups, fixtures, and results across all participating clubs
 
-The `site_id` appears in the URL of your Play-Cricket site's public-facing pages.
+The `site_id` appears on your Play-Cricket site's public-facing homepage.
 
 ### Clubs and club_id
 

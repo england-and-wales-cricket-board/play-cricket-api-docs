@@ -80,10 +80,16 @@ By default, unpublished matches are **not returned** by the API. Pass `include_u
 
 ## Always Specify a Season
 
-On Match Summary and Result Summary, the `season` parameter is technically optional but **strongly recommended**. Omitting it will return fixtures across all seasons, which can run to thousands of records and significantly slow the response.
+!!! warning
+    On Match Summary, `season` is optional but omitting it returns fixtures across **all seasons** — potentially several thousand records. On Result Summary, `season` is required, but a season-only request against a league site can still return 1,000+ records.
+
+    Always pair `season` with at least one additional filter (`division_id`, `team_id`, or a date range) on any site with significant data volume.
 
 ```
-# Good
+# Good — season + division filter
+GET /api/v2/matches.json?site_id=3540&season=2024&division_id=110530&api_token=xxx
+
+# Acceptable for a small club site
 GET /api/v2/matches.json?site_id=3540&season=2024&api_token=xxx
 
 # Avoid — returns all fixtures for all seasons
@@ -94,12 +100,10 @@ GET /api/v2/matches.json?site_id=3540&api_token=xxx
 
 ## Large Result Sets
 
-Some endpoint and parameter combinations can return very large responses. Be aware of these scenarios:
-
 | Scenario | Potential record count |
 |----------|----------------------|
-| Result Summary without filters (league site, full season) | 1,000+ |
-| Result Summary without filters (club site, full season) | 100+ |
-| Match Summary without a season on a large league site | Several thousand |
+| Match Summary — no `season` on a league site | Several thousand |
+| Result Summary — `season` only on a league site | 1,000+ |
+| Result Summary — `season` only on a club site | 100+ |
 
-Always apply the most specific filters you have available before making a request in production.
+Always apply the most specific filters available before making requests in production.
