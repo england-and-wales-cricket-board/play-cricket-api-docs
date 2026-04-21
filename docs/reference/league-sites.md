@@ -4,7 +4,7 @@ Returns a list of all league (competition) sites registered on Play-Cricket, inc
 
 **Endpoint**
 ```
-GET https://www.play-cricket.com/api/v2/league_sites.json
+GET https://www.play-cricket.com/api/v3/league_sites.json
 ```
 
 ---
@@ -20,7 +20,7 @@ GET https://www.play-cricket.com/api/v2/league_sites.json
 ## Example Request
 
 ```
-GET https://www.play-cricket.com/api/v2/league_sites.json?api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/league_sites.json?api_token=YOUR_TOKEN
 ```
 
 ---

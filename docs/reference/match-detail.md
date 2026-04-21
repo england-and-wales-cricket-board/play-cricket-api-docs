@@ -4,7 +4,7 @@ Returns the full scorecard for a single match, including team sheets, batting fi
 
 **Endpoint**
 ```
-GET https://www.play-cricket.com/api/v2/match_detail.json
+GET https://www.play-cricket.com/api/v3/match_detail.json
 ```
 
 ---
@@ -21,7 +21,7 @@ GET https://www.play-cricket.com/api/v2/match_detail.json
 ## Example Request
 
 ```
-GET https://www.play-cricket.com/api/v2/match_detail.json?match_id=5694618&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/match_detail.json?match_id=5694618&api_token=YOUR_TOKEN
 ```
 
 ---

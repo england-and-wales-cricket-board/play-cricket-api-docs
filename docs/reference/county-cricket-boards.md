@@ -4,7 +4,7 @@ Returns a list of all County Cricket Boards (CCBs) registered on Play-Cricket.
 
 **Endpoint**
 ```
-GET https://www.play-cricket.com/api/v2/CCBs.json
+GET https://www.play-cricket.com/api/v3/CCBs.json
 ```
 
 ---
@@ -20,7 +20,7 @@ GET https://www.play-cricket.com/api/v2/CCBs.json
 ## Example Request
 
 ```
-GET https://www.play-cricket.com/api/v2/CCBs.json?api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/CCBs.json?api_token=YOUR_TOKEN
 ```
 
 ---

@@ -1,6 +1,6 @@
 # Changelog
 
-This page tracks changes to the Play-Cricket API. All endpoints are currently at version `v2`.
+This page tracks changes to the Play-Cricket API. The current API version is `v3`.
 
 ---
 
@@ -39,7 +39,7 @@ The following fields and behaviours have been added or clarified relative to the
 
 ## Versioning
 
-The API is at version `v2`. There is currently no `v3`. If a new version is introduced, it will appear at `/api/v3/` and `/api/v2/` will continue to function during a transition period.
+The API has a `v2` and a `v3`. `v3` adds pagination to supported endpoints and will enforce additional required parameters (such as `season` on matches and `division_id`/`team_id` on results). All new integrations should use `v3`. The `v2` endpoints remain available for legacy integrations during a transition period.
 
 ---
 

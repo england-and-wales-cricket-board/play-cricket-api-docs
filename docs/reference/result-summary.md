@@ -2,26 +2,27 @@
 
 Returns completed matches (and matches in progress) with result, points, and innings totals. Returns everything in [Match Summary](./match-summary.md) plus result information and innings-level scoring — but **not** individual batting or bowling figures. Use [Match Detail](./match-detail.md) for full scorecards.
 
+!!! success "Use v3 — pagination is required for reliable results"
+    All new integrations must use the **v3 endpoint**. v3 returns results in pages, which avoids timeouts on large sites and reduces load on the API. The v2 endpoint is retained for legacy support only and is not recommended for new development.
+
 **Endpoint**
 ```
-GET https://www.play-cricket.com/api/v2/result_summary.json
+GET https://www.play-cricket.com/api/v3/result_summary.json
 ```
 
 ---
 
 ## Parameters
 
-!!! warning "Filter your requests"
-    `season` is required, but on its own it can still return 1,000+ records on a league site or 100+ on a club site. Always pair it with at least one of `division_id`, `team_id`, a `competition_type`, or a date range. Unfiltered requests against large sites will be slow and may time out.
-
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `api_token` | string | Yes | Your API authentication token |
 | `site_id` | integer | Yes | The ID of the club or league site |
-| `season` | string | Yes | The season year, e.g. `2024` |
-| `division_id` | integer | **Recommended** | Filter to a specific division. Strongly advised on league sites |
+| `season` | string | Yes | The season year, e.g. `2026` |
+| `page` | integer | Yes | Page number to retrieve, starting at `1`. Increment until `has_next_page` is `false` |
+| `division_id` | integer | **Required in v3** | Filter to a specific division. Strongly recommended in v2; will be enforced in v3 |
 | `cup_id` | integer | No | Filter to a specific cup |
-| `team_id` | integer | **Recommended** | Filter to a specific team. Strongly advised on club sites |
+| `team_id` | integer | **Required in v3** | Filter to a specific team. Strongly recommended in v2; will be enforced in v3 |
 | `competition_type` | string | No | Filter by competition type. Accepted values: `League`, `Cup`, `Friendly` |
 | `from_match_date` | string | No | Return only matches played on or after this date. Format: `dd/mm/yyyy`. Inclusive |
 | `end_match_date` | string | No | Return only matches played on or before this date. Format: `dd/mm/yyyy`. Inclusive |
@@ -30,21 +31,47 @@ GET https://www.play-cricket.com/api/v2/result_summary.json
 
 ---
 
+## Pagination
+
+v3 responses are paginated. The top-level `has_next_page` field tells you whether more pages exist. Always start at `page=1` and repeat the request — incrementing `page` by 1 each time — until `has_next_page` is `false`.
+
+```json
+{
+  "has_next_page": true,
+  "data": [ ... ]
+}
+```
+
+The array of matches is returned under the key `data`.
+
+**Pseudocode:**
+```
+page = 1
+loop:
+    response = GET /api/v3/result_summary.json?...&page={page}
+    process(response["data"])
+    if response["has_next_page"] == false:
+        break
+    page = page + 1
+```
+
+---
+
 ## Example Requests
 
 **All results for a division on a specific match day:**
 ```
-GET https://www.play-cricket.com/api/v2/result_summary.json?site_id=534&season=2024&division_id=110530&from_match_date=07/09/2024&end_match_date=07/09/2024&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/result_summary.json?site_id=534&season=2026&division_id=110530&from_match_date=07/09/2026&end_match_date=07/09/2026&page=1&api_token=YOUR_TOKEN
 ```
 
 **All results updated in the last hour (polling for new results):**
 ```
-GET https://www.play-cricket.com/api/v2/result_summary.json?site_id=534&season=2024&from_entry_date=07/09/2024T14:00:00&end_entry_date=07/09/2024T15:00:00&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/result_summary.json?site_id=534&season=2026&from_entry_date=07/09/2026T14:00:00&end_entry_date=07/09/2026T15:00:00&page=1&api_token=YOUR_TOKEN
 ```
 
 **All results for a specific team in a season:**
 ```
-GET https://www.play-cricket.com/api/v2/result_summary.json?site_id=3540&season=2024&team_id=175868&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/result_summary.json?site_id=3540&season=2026&team_id=175868&page=1&api_token=YOUR_TOKEN
 ```
 
 ---
@@ -53,7 +80,8 @@ GET https://www.play-cricket.com/api/v2/result_summary.json?site_id=3540&season=
 
 ```json
 {
-  "result_summary": [
+  "has_next_page": false,
+  "data": [
     {
       "id": 5694618,
       "status": "New",
@@ -176,6 +204,13 @@ GET https://www.play-cricket.com/api/v2/result_summary.json?site_id=3540&season=
 
 ## Response Fields
 
+### Top-level fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `has_next_page` | boolean | `true` if more pages exist. Repeat the request with `page` incremented by 1. `false` when the final page has been received |
+| `data` | array | Array of match objects. See match-level fields below |
+
 ### Match-level fields
 
 | Field | Type | Description |
@@ -274,8 +309,41 @@ One entry per innings. For a standard one-innings-per-side match there will be t
 
 ## Notes
 
-- **Watch your result set size.** Calling this endpoint for a full season on a league site without additional filters can return 1,000+ records. Always apply at least one of `division_id`, `cup_id`, `team_id`, or a date range.
-- The `from_entry_date` / `end_entry_date` parameters on this endpoint accept a **datetime** format (`dd/mm/yyyyThh:mm:ss`), unlike most other endpoints which accept date only. This allows hour-precision polling for new results. If you pass a date without a time, it defaults to `00:00:00`.
+- The `from_entry_date` / `end_entry_date` parameters accept a **datetime** format (`dd/mm/yyyyThh:mm:ss`), unlike most other endpoints which accept date only. This allows hour-precision polling for new results. If you pass a date without a time, it defaults to `00:00:00`.
 - The `last_updated` field changes whenever the result is updated, the scorecard is modified, or the result/scorecard is locked or unlocked. Polling on `from_entry_date` will catch all of these changes.
 - `match_notes` may contain HTML markup. Strip or sanitise as appropriate for your display context.
 - For individual batting and bowling figures, use [Match Detail](./match-detail.md).
+
+---
+
+## v2 Legacy Endpoint
+
+??? warning "v2 is a legacy endpoint — use v3 for all new integrations"
+
+    The v2 endpoint remains available for existing integrations but is **not recommended** for new development. It returns all results in a single unpaginated response, which can cause timeouts on large sites.
+
+    **v2 Endpoint**
+    ```
+    GET https://www.play-cricket.com/api/v2/result_summary.json
+    ```
+
+    v2 supports all the same filter parameters as v3 (`site_id`, `season`, `division_id`, `team_id`, etc.) but has no `page` parameter.
+
+    The v2 response uses a different top-level key and has no `has_next_page` field:
+
+    ```json
+    {
+      "result_summary": [ ... ]
+    }
+    ```
+
+    **Example v2 request:**
+    ```
+    GET https://www.play-cricket.com/api/v2/result_summary.json?site_id=534&season=2024&division_id=110530&api_token=YOUR_TOKEN
+    ```
+
+    If you are maintaining an existing v2 integration, migrating to v3 requires two changes:
+
+    1. Change `/api/v2/` to `/api/v3/` in the request URL
+    2. Add `&page=1` to your request, then implement the pagination loop using `has_next_page`
+    3. Update your response parsing to read from `data` instead of `result_summary`

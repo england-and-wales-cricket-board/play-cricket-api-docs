@@ -87,13 +87,13 @@ By default, unpublished matches are **not returned** by the API. Pass `include_u
 
 ```
 # Good — season + division filter
-GET /api/v2/matches.json?site_id=3540&season=2024&division_id=110530&api_token=xxx
+GET /api/v3/matches.json?site_id=3540&season=2026&division_id=110530&page=1&api_token=xxx
 
 # Acceptable for a small club site
-GET /api/v2/matches.json?site_id=3540&season=2024&api_token=xxx
+GET /api/v3/matches.json?site_id=3540&season=2026&page=1&api_token=xxx
 
-# Avoid — returns all fixtures for all seasons
-GET /api/v2/matches.json?site_id=3540&api_token=xxx
+# Avoid — season is required in v3 and will be rejected
+GET /api/v3/matches.json?site_id=3540&api_token=xxx
 ```
 
 ---

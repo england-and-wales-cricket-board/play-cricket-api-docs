@@ -4,7 +4,7 @@ Returns a list of divisions or cups for a specified league and season.
 
 **Endpoint**
 ```
-GET https://www.play-cricket.com/api/v2/competitions.json
+GET https://www.play-cricket.com/api/v3/competitions.json
 ```
 
 ---
@@ -24,12 +24,12 @@ GET https://www.play-cricket.com/api/v2/competitions.json
 
 **Divisions in a league for a season:**
 ```
-GET https://www.play-cricket.com/api/v2/competitions.json?league_id=296&season=2024&competition_type=divisions&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/competitions.json?league_id=296&season=2024&competition_type=divisions&api_token=YOUR_TOKEN
 ```
 
 **Cups in a league for a season:**
 ```
-GET https://www.play-cricket.com/api/v2/competitions.json?league_id=296&season=2024&competition_type=cups&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/competitions.json?league_id=296&season=2024&competition_type=cups&api_token=YOUR_TOKEN
 ```
 
 ---

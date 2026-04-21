@@ -4,23 +4,24 @@ Returns a list of fixtures — both upcoming and played — for a site. Returns 
 
 This endpoint is primarily used at the start of a season to build a fixture list, then polled at regular intervals using `from_entry_date` to capture any changes.
 
+!!! success "Use v3 — pagination is required for reliable results"
+    All new integrations must use the **v3 endpoint**. v3 returns results in pages, which avoids timeouts on large sites and reduces load on the API. The v2 endpoint is retained for legacy support only and is not recommended for new development.
+
 **Endpoint**
 ```
-GET https://www.play-cricket.com/api/v2/matches.json
+GET https://www.play-cricket.com/api/v3/matches.json
 ```
 
 ---
 
 ## Parameters
 
-!!! warning "Always specify a season"
-    Without `season`, this endpoint returns fixtures across **all seasons** — potentially several thousand records on a league site. Always pass `season` unless you have a specific reason to retrieve the full historical dataset.
-
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `api_token` | string | Yes | Your API authentication token |
 | `site_id` | integer | Yes | The ID of the club or league site |
-| `season` | string | **Recommended** | The season year, e.g. `2024`. Omitting this returns all fixtures across all seasons |
+| `season` | string | **Required in v3** | The season year, e.g. `2026`. Strongly recommended in v2; will be enforced in v3. Omitting in v2 returns fixtures across all seasons |
+| `page` | integer | Yes | Page number to retrieve, starting at `1`. Increment until `has_next_page` is `false` |
 | `division_id` | integer | No | Filter to a specific division |
 | `cup_id` | integer | No | Filter to a specific cup |
 | `team_id` | integer | No | Filter to a specific team |
@@ -31,21 +32,47 @@ GET https://www.play-cricket.com/api/v2/matches.json
 
 ---
 
+## Pagination
+
+v3 responses are paginated. The top-level `has_next_page` field tells you whether more pages exist. Always start at `page=1` and repeat the request — incrementing `page` by 1 each time — until `has_next_page` is `false`.
+
+```json
+{
+  "has_next_page": true,
+  "data": [ ... ]
+}
+```
+
+The array of matches is returned under the key `data`.
+
+**Pseudocode:**
+```
+page = 1
+loop:
+    response = GET /api/v3/matches.json?...&page={page}
+    process(response["data"])
+    if response["has_next_page"] == false:
+        break
+    page = page + 1
+```
+
+---
+
 ## Example Requests
 
 **All fixtures for a club in a season:**
 ```
-GET https://www.play-cricket.com/api/v2/matches.json?site_id=3540&season=2024&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/matches.json?site_id=3540&season=2026&page=1&api_token=YOUR_TOKEN
 ```
 
 **Fixtures updated in a date range (for polling changes):**
 ```
-GET https://www.play-cricket.com/api/v2/matches.json?site_id=3540&season=2024&api_token=YOUR_TOKEN&from_entry_date=27/11/2024&end_entry_date=28/11/2024
+GET https://www.play-cricket.com/api/v3/matches.json?site_id=3540&season=2026&from_entry_date=27/04/2026&end_entry_date=28/04/2026&page=1&api_token=YOUR_TOKEN
 ```
 
 **League fixtures only for a specific division:**
 ```
-GET https://www.play-cricket.com/api/v2/matches.json?site_id=534&season=2024&division_id=110530&competition_type=League&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/matches.json?site_id=534&season=2026&division_id=110530&competition_type=League&page=1&api_token=YOUR_TOKEN
 ```
 
 ---
@@ -54,7 +81,8 @@ GET https://www.play-cricket.com/api/v2/matches.json?site_id=534&season=2024&div
 
 ```json
 {
-  "matches": [
+  "has_next_page": false,
+  "data": [
     {
       "id": 5681166,
       "status": "New",
@@ -104,6 +132,15 @@ GET https://www.play-cricket.com/api/v2/matches.json?site_id=534&season=2024&div
 
 ## Response Fields
 
+### Top-level fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `has_next_page` | boolean | `true` if more pages exist. Repeat the request with `page` incremented by 1. `false` when the final page has been received |
+| `data` | array | Array of match objects. See match-level fields below |
+
+### Match-level fields
+
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | integer | Unique match identifier. Use as `match_id` in [Match Detail](./match-detail.md) |
@@ -118,7 +155,7 @@ GET https://www.play-cricket.com/api/v2/matches.json?site_id=534&season=2024&div
 | `competition_type` | string | `League`, `Cup`, or `Friendly` |
 | `match_type` | string | e.g. `Limited Overs`, `Declaration` |
 | `game_type` | string | e.g. `Standard` |
-| `season` | string | Season year, e.g. `2024` |
+| `season` | string | Season year, e.g. `2026` |
 | `match_date` | string | Date of the fixture. Format: `dd/mm/yyyy` |
 | `match_time` | string | Start time of the fixture. Format: `HH:MM` |
 | `ground_name` | string | Name of the ground |
@@ -154,3 +191,37 @@ GET https://www.play-cricket.com/api/v2/matches.json?site_id=534&season=2024&div
 - The `from_entry_date` and `end_entry_date` parameters filter by `last_updated`, not by match date. A fixture's `last_updated` changes when its result or scorecard is added or amended. To retrieve fixtures changed on a specific day, set `from_entry_date` to that day and `end_entry_date` to the following day.
 - Unpublished matches are fixtures created in the league system but not yet made visible to clubs or the public. The vast majority of integrations should leave `include_unpublished` unset.
 - This endpoint returns **no result data**. For results, use [Result Summary](./result-summary.md).
+
+---
+
+## v2 Legacy Endpoint
+
+??? warning "v2 is a legacy endpoint — use v3 for all new integrations"
+
+    The v2 endpoint remains available for existing integrations but is **not recommended** for new development. It returns all fixtures in a single unpaginated response, which can cause timeouts on large sites.
+
+    **v2 Endpoint**
+    ```
+    GET https://www.play-cricket.com/api/v2/matches.json
+    ```
+
+    v2 supports all the same filter parameters as v3 but has no `page` parameter, and `season` is strongly recommended rather than required.
+
+    The v2 response uses a different top-level key and has no `has_next_page` field:
+
+    ```json
+    {
+      "matches": [ ... ]
+    }
+    ```
+
+    **Example v2 request:**
+    ```
+    GET https://www.play-cricket.com/api/v2/matches.json?site_id=3540&season=2024&api_token=YOUR_TOKEN
+    ```
+
+    If you are maintaining an existing v2 integration, migrating to v3 requires three changes:
+
+    1. Change `/api/v2/` to `/api/v3/` in the request URL
+    2. Add `&page=1` to your request, then implement the pagination loop using `has_next_page`
+    3. Update your response parsing to read from `data` instead of `matches`

@@ -4,7 +4,7 @@ Returns the current league table for a specified division. This endpoint trigger
 
 **Endpoint**
 ```
-GET https://www.play-cricket.com/api/v2/league_table.json
+GET https://www.play-cricket.com/api/v3/league_table.json
 ```
 
 ---
@@ -21,7 +21,7 @@ GET https://www.play-cricket.com/api/v2/league_table.json
 ## Example Request
 
 ```
-GET https://www.play-cricket.com/api/v2/league_table.json?division_id=110530&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/league_table.json?division_id=110530&api_token=YOUR_TOKEN
 ```
 
 ---

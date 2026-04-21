@@ -4,7 +4,7 @@ Returns a list of all teams competing in a specified division or cup.
 
 **Endpoint**
 ```
-GET https://www.play-cricket.com/api/v2/competition_teams.json
+GET https://www.play-cricket.com/api/v3/competition_teams.json
 ```
 
 ---
@@ -21,7 +21,7 @@ GET https://www.play-cricket.com/api/v2/competition_teams.json
 ## Example Request
 
 ```
-GET https://www.play-cricket.com/api/v2/competition_teams.json?id=69548&api_token=YOUR_TOKEN
+GET https://www.play-cricket.com/api/v3/competition_teams.json?id=69548&api_token=YOUR_TOKEN
 ```
 
 ---

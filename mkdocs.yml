@@ -7,7 +7,8 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-  logo: https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp
+  logo: header-logo.png
+  favicon: square-logo.png
   font:
     text: Barlow
     code: JetBrains Mono
@@ -93,6 +94,7 @@ nav:
       - Enum Values: appendices/enum-values.md
       - Date Formats: appendices/date-formats.md
       - ID Lifecycle: appendices/id-lifecycle.md
+      - Rate Limiting: appendices/rate-limiting.md
       - Changelog: appendices/changelog.md
 
 extra_css:
