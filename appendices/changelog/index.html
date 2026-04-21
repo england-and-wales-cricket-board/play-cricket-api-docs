@@ -13,14 +13,14 @@
         <link rel="canonical" href="https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/appendices/changelog/">
       
       
-        <link rel="prev" href="../id-lifecycle/">
+        <link rel="prev" href="../rate-limiting/">
       
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../square-logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -96,7 +96,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Play-Cricket API" class="md-header__button md-logo" aria-label="Play-Cricket API" data-md-component="logo">
       
-  <img src="https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp" alt="logo">
+  <img src="../../header-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -341,7 +341,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Play-Cricket API" class="md-nav__button md-logo" aria-label="Play-Cricket API" data-md-component="logo">
       
-  <img src="https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp" alt="logo">
+  <img src="../../header-logo.png" alt="logo">
 
     </a>
     Play-Cricket API
@@ -1313,6 +1313,8 @@
       
         
       
+        
+      
     
     
     
@@ -1432,6 +1434,34 @@
     
   
     ID Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rate-limiting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rate Limiting
   
 
     
@@ -1705,7 +1735,7 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
-<p>This page tracks changes to the Play-Cricket API. All endpoints are currently at version <code>v2</code>.</p>
+<p>This page tracks changes to the Play-Cricket API. The current API version is <code>v3</code>.</p>
 <hr />
 <h2 id="how-to-read-this-log">How to read this log<a class="headerlink" href="#how-to-read-this-log" title="Permanent link">&para;</a></h2>
 <p>Each entry notes the affected endpoint, the nature of the change, and any action required for existing integrations.</p>
@@ -1780,7 +1810,7 @@
 </table>
 <hr />
 <h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
-<p>The API is at version <code>v2</code>. There is currently no <code>v3</code>. If a new version is introduced, it will appear at <code>/api/v3/</code> and <code>/api/v2/</code> will continue to function during a transition period.</p>
+<p>The API has a <code>v2</code> and a <code>v3</code>. <code>v3</code> adds pagination to supported endpoints and will enforce additional required parameters (such as <code>season</code> on matches and <code>division_id</code>/<code>team_id</code> on results). All new integrations should use <code>v3</code>. The <code>v2</code> endpoints remain available for legacy integrations during a transition period.</p>
 <hr />
 <p><em>This changelog will be updated as new fields, parameters, or endpoints are introduced. If you notice a discrepancy between this documentation and API behaviour, please contact the Play-Cricket team.</em></p>
 

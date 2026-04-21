@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../square-logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -98,7 +98,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Play-Cricket API" class="md-header__button md-logo" aria-label="Play-Cricket API" data-md-component="logo">
       
-  <img src="https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp" alt="logo">
+  <img src="../header-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -343,7 +343,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Play-Cricket API" class="md-nav__button md-logo" aria-label="Play-Cricket API" data-md-component="logo">
       
-  <img src="https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp" alt="logo">
+  <img src="../header-logo.png" alt="logo">
 
     </a>
     Play-Cricket API
@@ -1487,6 +1487,8 @@
       
         
       
+        
+      
     
     
     
@@ -1605,6 +1607,34 @@
     
   
     ID Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendices/rate-limiting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rate Limiting
   
 
     
@@ -1910,13 +1940,13 @@
 <p>Always pair <code>season</code> with at least one additional filter (<code>division_id</code>, <code>team_id</code>, or a date range) on any site with significant data volume.</p>
 </div>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># Good — season + division filter
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>GET /api/v2/matches.json?site_id=3540&amp;season=2024&amp;division_id=110530&amp;api_token=xxx
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>GET /api/v3/matches.json?site_id=3540&amp;season=2026&amp;division_id=110530&amp;page=1&amp;api_token=xxx
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a># Acceptable for a small club site
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>GET /api/v2/matches.json?site_id=3540&amp;season=2024&amp;api_token=xxx
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>GET /api/v3/matches.json?site_id=3540&amp;season=2026&amp;page=1&amp;api_token=xxx
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># Avoid — returns all fixtures for all seasons
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>GET /api/v2/matches.json?site_id=3540&amp;api_token=xxx
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a># Avoid — season is required in v3 and will be rejected
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>GET /api/v3/matches.json?site_id=3540&amp;api_token=xxx
 </span></code></pre></div>
 <hr />
 <h2 id="large-result-sets">Large Result Sets<a class="headerlink" href="#large-result-sets" title="Permanent link">&para;</a></h2>

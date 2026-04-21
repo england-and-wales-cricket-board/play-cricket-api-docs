@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../square-logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -98,7 +98,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Play-Cricket API" class="md-header__button md-logo" aria-label="Play-Cricket API" data-md-component="logo">
       
-  <img src="https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp" alt="logo">
+  <img src="../../header-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -345,7 +345,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Play-Cricket API" class="md-nav__button md-logo" aria-label="Play-Cricket API" data-md-component="logo">
       
-  <img src="https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp" alt="logo">
+  <img src="../../header-logo.png" alt="logo">
 
     </a>
     Play-Cricket API
@@ -1200,6 +1200,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example-requests" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1230,6 +1241,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Response Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#top-level-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top-level fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-level-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Match-level fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1237,6 +1276,17 @@
     <span class="md-ellipsis">
       
         Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v2-legacy-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2 Legacy Endpoint
       
     </span>
   </a>
@@ -1437,6 +1487,8 @@
       
         
       
+        
+      
     
     
     
@@ -1575,6 +1627,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../appendices/rate-limiting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rate Limiting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../appendices/changelog/" class="md-nav__link">
         
   
@@ -1643,6 +1723,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#example-requests" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1673,6 +1764,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Response Fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#top-level-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top-level fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-level-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Match-level fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1680,6 +1799,17 @@
     <span class="md-ellipsis">
       
         Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#v2-legacy-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        v2 Legacy Endpoint
       
     </span>
   </a>
@@ -1714,15 +1844,15 @@
 <h1 id="match-summary">Match Summary<a class="headerlink" href="#match-summary" title="Permanent link">&para;</a></h1>
 <p>Returns a list of fixtures — both upcoming and played — for a site. Returns fixture details, team names, ground, and officials, but <strong>no result or scorecard data</strong>. Use <a href="../result-summary/">Result Summary</a> if you need result information.</p>
 <p>This endpoint is primarily used at the start of a season to build a fixture list, then polled at regular intervals using <code>from_entry_date</code> to capture any changes.</p>
+<div class="admonition success">
+<p class="admonition-title">Use v3 — pagination is required for reliable results</p>
+<p>All new integrations must use the <strong>v3 endpoint</strong>. v3 returns results in pages, which avoids timeouts on large sites and reduces load on the API. The v2 endpoint is retained for legacy support only and is not recommended for new development.</p>
+</div>
 <p><strong>Endpoint</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>GET https://www.play-cricket.com/api/v2/matches.json
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>GET https://www.play-cricket.com/api/v3/matches.json
 </span></code></pre></div></p>
 <hr />
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Always specify a season</p>
-<p>Without <code>season</code>, this endpoint returns fixtures across <strong>all seasons</strong> — potentially several thousand records on a league site. Always pass <code>season</code> unless you have a specific reason to retrieve the full historical dataset.</p>
-</div>
 <table>
 <thead>
 <tr>
@@ -1748,8 +1878,14 @@
 <tr>
 <td><code>season</code></td>
 <td>string</td>
-<td><strong>Recommended</strong></td>
-<td>The season year, e.g. <code>2024</code>. Omitting this returns all fixtures across all seasons</td>
+<td><strong>Required in v3</strong></td>
+<td>The season year, e.g. <code>2026</code>. Strongly recommended in v2; will be enforced in v3. Omitting in v2 returns fixtures across all seasons</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td>integer</td>
+<td>Yes</td>
+<td>Page number to retrieve, starting at <code>1</code>. Increment until <code>has_next_page</code> is <code>false</code></td>
 </tr>
 <tr>
 <td><code>division_id</code></td>
@@ -1796,66 +1932,108 @@
 </tbody>
 </table>
 <hr />
+<h2 id="pagination">Pagination<a class="headerlink" href="#pagination" title="Permanent link">&para;</a></h2>
+<p>v3 responses are paginated. The top-level <code>has_next_page</code> field tells you whether more pages exist. Always start at <code>page=1</code> and repeat the request — incrementing <code>page</code> by 1 each time — until <code>has_next_page</code> is <code>false</code>.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;has_next_page&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The array of matches is returned under the key <code>data</code>.</p>
+<p><strong>Pseudocode:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>page = 1
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>loop:
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    response = GET /api/v3/matches.json?...&amp;page={page}
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    process(response[&quot;data&quot;])
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    if response[&quot;has_next_page&quot;] == false:
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        break
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    page = page + 1
+</span></code></pre></div></p>
+<hr />
 <h2 id="example-requests">Example Requests<a class="headerlink" href="#example-requests" title="Permanent link">&para;</a></h2>
 <p><strong>All fixtures for a club in a season:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GET https://www.play-cricket.com/api/v2/matches.json?site_id=3540&amp;season=2024&amp;api_token=YOUR_TOKEN
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>GET https://www.play-cricket.com/api/v3/matches.json?site_id=3540&amp;season=2026&amp;page=1&amp;api_token=YOUR_TOKEN
 </span></code></pre></div></p>
 <p><strong>Fixtures updated in a date range (for polling changes):</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GET https://www.play-cricket.com/api/v2/matches.json?site_id=3540&amp;season=2024&amp;api_token=YOUR_TOKEN&amp;from_entry_date=27/11/2024&amp;end_entry_date=28/11/2024
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>GET https://www.play-cricket.com/api/v3/matches.json?site_id=3540&amp;season=2026&amp;from_entry_date=27/04/2026&amp;end_entry_date=28/04/2026&amp;page=1&amp;api_token=YOUR_TOKEN
 </span></code></pre></div></p>
 <p><strong>League fixtures only for a specific division:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>GET https://www.play-cricket.com/api/v2/matches.json?site_id=534&amp;season=2024&amp;division_id=110530&amp;competition_type=League&amp;api_token=YOUR_TOKEN
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>GET https://www.play-cricket.com/api/v3/matches.json?site_id=534&amp;season=2026&amp;division_id=110530&amp;competition_type=League&amp;page=1&amp;api_token=YOUR_TOKEN
 </span></code></pre></div></p>
 <hr />
 <h2 id="example-response">Example Response<a class="headerlink" href="#example-response" title="Permanent link">&para;</a></h2>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;matches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5681166</span><span class="p">,</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New&quot;</span><span class="p">,</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">&quot;published&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">&quot;last_updated&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11/04/2024&quot;</span><span class="p">,</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">      </span><span class="nt">&quot;league_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Warwickshire County Cricket League&quot;</span><span class="p">,</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">&quot;league_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;534&quot;</span><span class="p">,</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">&quot;competition_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Premier Division&quot;</span><span class="p">,</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">&quot;competition_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;110530&quot;</span><span class="p">,</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">      </span><span class="nt">&quot;division_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;110530&quot;</span><span class="p">,</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="nt">&quot;competition_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;League&quot;</span><span class="p">,</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">      </span><span class="nt">&quot;match_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Limited Overs&quot;</span><span class="p">,</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">      </span><span class="nt">&quot;game_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Standard&quot;</span><span class="p">,</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">      </span><span class="nt">&quot;season&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">      </span><span class="nt">&quot;match_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;08/06/2024&quot;</span><span class="p">,</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">      </span><span class="nt">&quot;match_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11:30&quot;</span><span class="p">,</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">      </span><span class="nt">&quot;ground_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Edgbaston Road&quot;</span><span class="p">,</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">      </span><span class="nt">&quot;ground_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6065&quot;</span><span class="p">,</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">      </span><span class="nt">&quot;ground_latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;52.313748&quot;</span><span class="p">,</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">      </span><span class="nt">&quot;ground_longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1.4538062&quot;</span><span class="p">,</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">      </span><span class="nt">&quot;home_club_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chingford CC&quot;</span><span class="p">,</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">      </span><span class="nt">&quot;home_team_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1st XI&quot;</span><span class="p">,</span>
-</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">      </span><span class="nt">&quot;home_team_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12640&quot;</span><span class="p">,</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">      </span><span class="nt">&quot;home_club_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1835&quot;</span><span class="p">,</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">      </span><span class="nt">&quot;away_club_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chingford Quackers CC&quot;</span><span class="p">,</span>
-</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">      </span><span class="nt">&quot;away_team_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1st XI&quot;</span><span class="p">,</span>
-</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">      </span><span class="nt">&quot;away_team_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;208057&quot;</span><span class="p">,</span>
-</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">      </span><span class="nt">&quot;away_club_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;14793&quot;</span><span class="p">,</span>
-</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">      </span><span class="nt">&quot;umpire_1_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Martin Johnson&quot;</span><span class="p">,</span>
-</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">      </span><span class="nt">&quot;umpire_1_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;67824&quot;</span><span class="p">,</span>
-</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">      </span><span class="nt">&quot;umpire_2_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">      </span><span class="nt">&quot;umpire_2_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">      </span><span class="nt">&quot;umpire_3_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">      </span><span class="nt">&quot;umpire_3_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="w">      </span><span class="nt">&quot;referee_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">      </span><span class="nt">&quot;referee_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">      </span><span class="nt">&quot;scorer_1_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Amber Leonard&quot;</span><span class="p">,</span>
-</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="w">      </span><span class="nt">&quot;scorer_1_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3778646&quot;</span><span class="p">,</span>
-</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="w">      </span><span class="nt">&quot;scorer_2_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="w">      </span><span class="nt">&quot;scorer_2_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="w">  </span><span class="p">]</span>
-</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="p">}</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;has_next_page&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5681166</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New&quot;</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span><span class="nt">&quot;published&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="nt">&quot;last_updated&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11/04/2024&quot;</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="nt">&quot;league_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Warwickshire County Cricket League&quot;</span><span class="p">,</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="nt">&quot;league_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;534&quot;</span><span class="p">,</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="nt">&quot;competition_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Premier Division&quot;</span><span class="p">,</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">      </span><span class="nt">&quot;competition_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;110530&quot;</span><span class="p">,</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">      </span><span class="nt">&quot;division_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;110530&quot;</span><span class="p">,</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">      </span><span class="nt">&quot;competition_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;League&quot;</span><span class="p">,</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">      </span><span class="nt">&quot;match_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Limited Overs&quot;</span><span class="p">,</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">      </span><span class="nt">&quot;game_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Standard&quot;</span><span class="p">,</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="nt">&quot;season&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">      </span><span class="nt">&quot;match_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;08/06/2024&quot;</span><span class="p">,</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">      </span><span class="nt">&quot;match_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11:30&quot;</span><span class="p">,</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">      </span><span class="nt">&quot;ground_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Edgbaston Road&quot;</span><span class="p">,</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">      </span><span class="nt">&quot;ground_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6065&quot;</span><span class="p">,</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">      </span><span class="nt">&quot;ground_latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;52.313748&quot;</span><span class="p">,</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">      </span><span class="nt">&quot;ground_longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1.4538062&quot;</span><span class="p">,</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">      </span><span class="nt">&quot;home_club_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chingford CC&quot;</span><span class="p">,</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">      </span><span class="nt">&quot;home_team_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1st XI&quot;</span><span class="p">,</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">      </span><span class="nt">&quot;home_team_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12640&quot;</span><span class="p">,</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">      </span><span class="nt">&quot;home_club_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1835&quot;</span><span class="p">,</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="w">      </span><span class="nt">&quot;away_club_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chingford Quackers CC&quot;</span><span class="p">,</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="w">      </span><span class="nt">&quot;away_team_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1st XI&quot;</span><span class="p">,</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="w">      </span><span class="nt">&quot;away_team_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;208057&quot;</span><span class="p">,</span>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="w">      </span><span class="nt">&quot;away_club_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;14793&quot;</span><span class="p">,</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="w">      </span><span class="nt">&quot;umpire_1_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Martin Johnson&quot;</span><span class="p">,</span>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="w">      </span><span class="nt">&quot;umpire_1_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;67824&quot;</span><span class="p">,</span>
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="w">      </span><span class="nt">&quot;umpire_2_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="w">      </span><span class="nt">&quot;umpire_2_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="w">      </span><span class="nt">&quot;umpire_3_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="w">      </span><span class="nt">&quot;umpire_3_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a><span class="w">      </span><span class="nt">&quot;referee_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a><span class="w">      </span><span class="nt">&quot;referee_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a><span class="w">      </span><span class="nt">&quot;scorer_1_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Amber Leonard&quot;</span><span class="p">,</span>
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a><span class="w">      </span><span class="nt">&quot;scorer_1_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3778646&quot;</span><span class="p">,</span>
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a><span class="w">      </span><span class="nt">&quot;scorer_2_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a><span class="w">      </span><span class="nt">&quot;scorer_2_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-6-46"><a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a><span class="p">}</span>
 </span></code></pre></div>
 <hr />
 <h2 id="response-fields">Response Fields<a class="headerlink" href="#response-fields" title="Permanent link">&para;</a></h2>
+<h3 id="top-level-fields">Top-level fields<a class="headerlink" href="#top-level-fields" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>has_next_page</code></td>
+<td>boolean</td>
+<td><code>true</code> if more pages exist. Repeat the request with <code>page</code> incremented by 1. <code>false</code> when the final page has been received</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>array</td>
+<td>Array of match objects. See match-level fields below</td>
+</tr>
+</tbody>
+</table>
+<h3 id="match-level-fields">Match-level fields<a class="headerlink" href="#match-level-fields" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1928,7 +2106,7 @@
 <tr>
 <td><code>season</code></td>
 <td>string</td>
-<td>Season year, e.g. <code>2024</code></td>
+<td>Season year, e.g. <code>2026</code></td>
 </tr>
 <tr>
 <td><code>match_date</code></td>
@@ -2070,6 +2248,30 @@
 <li>Unpublished matches are fixtures created in the league system but not yet made visible to clubs or the public. The vast majority of integrations should leave <code>include_unpublished</code> unset.</li>
 <li>This endpoint returns <strong>no result data</strong>. For results, use <a href="../result-summary/">Result Summary</a>.</li>
 </ul>
+<hr />
+<h2 id="v2-legacy-endpoint">v2 Legacy Endpoint<a class="headerlink" href="#v2-legacy-endpoint" title="Permanent link">&para;</a></h2>
+<details class="warning">
+<summary>v2 is a legacy endpoint — use v3 for all new integrations</summary>
+<p>The v2 endpoint remains available for existing integrations but is <strong>not recommended</strong> for new development. It returns all fixtures in a single unpaginated response, which can cause timeouts on large sites.</p>
+<p><strong>v2 Endpoint</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>GET https://www.play-cricket.com/api/v2/matches.json
+</span></code></pre></div></p>
+<p>v2 supports all the same filter parameters as v3 but has no <code>page</code> parameter, and <code>season</code> is strongly recommended rather than required.</p>
+<p>The v2 response uses a different top-level key and has no <code>has_next_page</code> field:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;matches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Example v2 request:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>GET https://www.play-cricket.com/api/v2/matches.json?site_id=3540&amp;season=2024&amp;api_token=YOUR_TOKEN
+</span></code></pre></div></p>
+<p>If you are maintaining an existing v2 integration, migrating to v3 requires three changes:</p>
+<ol>
+<li>Change <code>/api/v2/</code> to <code>/api/v3/</code> in the request URL</li>
+<li>Add <code>&amp;page=1</code> to your request, then implement the pagination loop using <code>has_next_page</code></li>
+<li>Update your response parsing to read from <code>data</code> instead of <code>matches</code></li>
+</ol>
+</details>
 
 
 

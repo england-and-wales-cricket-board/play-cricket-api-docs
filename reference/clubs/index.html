@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../square-logo.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -98,7 +98,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="Play-Cricket API" class="md-header__button md-logo" aria-label="Play-Cricket API" data-md-component="logo">
       
-  <img src="https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp" alt="logo">
+  <img src="../../header-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -345,7 +345,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="Play-Cricket API" class="md-nav__button md-logo" aria-label="Play-Cricket API" data-md-component="logo">
       
-  <img src="https://www.sedgwickcc.co.uk/wp-content/uploads/2024/11/Play-Cricket-CTA-Widget.webp" alt="logo">
+  <img src="../../header-logo.png" alt="logo">
 
     </a>
     Play-Cricket API
@@ -1437,6 +1437,8 @@
       
         
       
+        
+      
     
     
     
@@ -1555,6 +1557,34 @@
     
   
     ID Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendices/rate-limiting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rate Limiting
   
 
     
@@ -1714,7 +1744,7 @@
 <h1 id="list-clubs">List Clubs<a class="headerlink" href="#list-clubs" title="Permanent link">&para;</a></h1>
 <p>Returns a list of clubs registered on Play-Cricket, with optional filtering by county or last-updated date.</p>
 <p><strong>Endpoint</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>GET https://www.play-cricket.com/api/v2/clubs.json
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>GET https://www.play-cricket.com/api/v3/clubs.json
 </span></code></pre></div></p>
 <hr />
 <h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
@@ -1757,13 +1787,13 @@
 <hr />
 <h2 id="example-requests">Example Requests<a class="headerlink" href="#example-requests" title="Permanent link">&para;</a></h2>
 <p><strong>All clubs nationally:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GET https://www.play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GET https://www.play-cricket.com/api/v3/clubs.json?api_token=YOUR_TOKEN
 </span></code></pre></div></p>
 <p><strong>Clubs in a specific county:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GET https://www.play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN&amp;county_id=37
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GET https://www.play-cricket.com/api/v3/clubs.json?api_token=YOUR_TOKEN&amp;county_id=37
 </span></code></pre></div></p>
 <p><strong>Clubs updated in a date range (for polling changes):</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>GET https://www.play-cricket.com/api/v2/clubs.json?api_token=YOUR_TOKEN&amp;from_entry_date=01/01/2024&amp;end_entry_date=01/02/2024
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>GET https://www.play-cricket.com/api/v3/clubs.json?api_token=YOUR_TOKEN&amp;from_entry_date=01/01/2024&amp;end_entry_date=01/02/2024
 </span></code></pre></div></p>
 <hr />
 <h2 id="example-response">Example Response<a class="headerlink" href="#example-response" title="Permanent link">&para;</a></h2>

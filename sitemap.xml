@@ -2,82 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/authentication/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/common-patterns/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/data-model/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/error-handling/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/appendices/changelog/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/appendices/date-formats/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/appendices/enum-values/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/appendices/id-lifecycle/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
+    </url>
+    <url>
+         <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/appendices/rate-limiting/</loc>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/clubs/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/competitions/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/county-cricket-boards/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/league-sites/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/league-table/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/match-detail/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/match-summary/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/players/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/result-summary/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/teams-in-division/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
     <url>
          <loc>https://england-and-wales-cricket-board.github.io/play-cricket-api-docs/reference/teams/</loc>
-         <lastmod>2026-04-08</lastmod>
+         <lastmod>2026-04-21</lastmod>
     </url>
 </urlset>
