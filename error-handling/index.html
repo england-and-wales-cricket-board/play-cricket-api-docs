@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../square-logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1728,11 +1728,15 @@
 </tr>
 <tr>
 <td><code>403 Forbidden</code></td>
-<td>Your token does not have permission to access this endpoint or site.</td>
+<td>Your token does not have access to this endpoint, or to the organisation you requested.</td>
 </tr>
 <tr>
 <td><code>404 Not Found</code></td>
 <td>The requested resource (e.g. a specific <code>match_id</code>) does not exist.</td>
+</tr>
+<tr>
+<td><code>429 Too Many Requests</code></td>
+<td>You have exceeded the rate limit for this endpoint. See <a href="../appendices/rate-limiting/">Rate Limiting</a>.</td>
 </tr>
 <tr>
 <td><code>500 Internal Server Error</code></td>
@@ -1744,7 +1748,7 @@
 <h2 id="empty-result-sets">Empty Result Sets<a class="headerlink" href="#empty-result-sets" title="Permanent link">&para;</a></h2>
 <p>If your request is valid but no records match your filters, the API returns an HTTP <code>200</code> with an empty array — not an error. For example:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;matches&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"matches"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>This is normal behaviour when, for example, no fixtures have been updated within the date range you specified.</p>
@@ -1771,6 +1775,14 @@
 <td>Division IDs change each season — ensure you are using the ID for the current season (retrieve via <code>GET /competitions.json</code>)</td>
 </tr>
 <tr>
+<td>A club, CCB, or league site is missing from the response</td>
+<td>Your token has not been granted access to it — contact our support team</td>
+</tr>
+<tr>
+<td><code>403</code> for a site you expect to reach</td>
+<td>Your token has not been granted access to that site — contact our support team</td>
+</tr>
+<tr>
 <td>Very slow response</td>
 <td>Large unfiltered result set — add <code>season</code>, <code>division_id</code>, or date range filters</td>
 </tr>
@@ -1778,13 +1790,8 @@
 </table>
 <hr />
 <h2 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h2>
-<p>The Play-Cricket API does not currently publish explicit rate limits. As a guideline:</p>
-<ul>
-<li>Avoid polling more frequently than once per minute</li>
-<li>Use <code>from_entry_date</code> / <code>end_entry_date</code> to retrieve only changed records rather than re-fetching entire datasets</li>
-<li>Avoid calling <code>GET /league_table.json</code> excessively — this endpoint triggers a live table calculation on each request</li>
-</ul>
-<p>If you are building a high-frequency integration, contact the Play-Cricket team to discuss your requirements.</p>
+<p>Requests are rate limited per endpoint. If you exceed a limit, the API returns <code>429 Too Many Requests</code>. Stop retrying, wait at least 60 seconds, then try again.</p>
+<p>See <a href="../appendices/rate-limiting/">Rate Limiting</a> for how the limits work and how to design your integration to stay within them.</p>
 
 
 
@@ -1859,7 +1866,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.action.edit", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
