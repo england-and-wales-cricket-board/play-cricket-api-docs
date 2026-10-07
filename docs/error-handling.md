@@ -11,8 +11,9 @@ The Play-Cricket API uses standard HTTP status codes to indicate success or fail
 | `200 OK` | Request succeeded. The response body contains the requested data. |
 | `400 Bad Request` | A required parameter is missing or a parameter value is invalid. |
 | `401 Unauthorized` | The `api_token` is missing, invalid, or does not have access to the requested resource. |
-| `403 Forbidden` | Your token does not have permission to access this endpoint or site. |
+| `403 Forbidden` | Your token does not have access to this endpoint, or to the organisation you requested. |
 | `404 Not Found` | The requested resource (e.g. a specific `match_id`) does not exist. |
+| `429 Too Many Requests` | You have exceeded the rate limit for this endpoint. See [Rate Limiting](appendices/rate-limiting.md). |
 | `500 Internal Server Error` | An unexpected error occurred on the server. |
 
 ---
@@ -38,16 +39,14 @@ This is normal behaviour when, for example, no fixtures have been updated within
 | Empty response when records are expected | Missing or incorrect `season` parameter; date range too narrow; `site_id` pointing to wrong site |
 | Fewer results than expected | `include_unpublished` not set — unpublished matches are excluded by default |
 | `division_id` returns no results | Division IDs change each season — ensure you are using the ID for the current season (retrieve via `GET /competitions.json`) |
+| A club, CCB, or league site is missing from the response | Your token has not been granted access to it — contact our support team |
+| `403` for a site you expect to reach | Your token has not been granted access to that site — contact our support team |
 | Very slow response | Large unfiltered result set — add `season`, `division_id`, or date range filters |
 
 ---
 
 ## Rate Limiting
 
-The Play-Cricket API does not currently publish explicit rate limits. As a guideline:
+Requests are rate limited per endpoint. If you exceed a limit, the API returns `429 Too Many Requests`. Stop retrying, wait at least 60 seconds, then try again.
 
-- Avoid polling more frequently than once per minute
-- Use `from_entry_date` / `end_entry_date` to retrieve only changed records rather than re-fetching entire datasets
-- Avoid calling `GET /league_table.json` excessively — this endpoint triggers a live table calculation on each request
-
-If you are building a high-frequency integration, contact the Play-Cricket team to discuss your requirements.
+See [Rate Limiting](appendices/rate-limiting.md) for how the limits work and how to design your integration to stay within them.

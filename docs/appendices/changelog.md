@@ -10,9 +10,9 @@ Each entry notes the affected endpoint, the nature of the change, and any action
 
 ---
 
-## Known additions since original documentation
+## Field and parameter additions
 
-The following fields and behaviours have been added or clarified relative to the original API documentation:
+The following fields and behaviours have been added to the API:
 
 ### Result Summary
 
@@ -43,4 +43,4 @@ The API has a `v2` and a `v3`. `v3` adds pagination to supported endpoints and w
 
 ---
 
-*This changelog will be updated as new fields, parameters, or endpoints are introduced. If you notice a discrepancy between this documentation and API behaviour, please contact the Play-Cricket team.*
+*This changelog will be updated as new fields, parameters, or endpoints are introduced. If you notice a discrepancy between this documentation and API behaviour, please contact our support team.*
