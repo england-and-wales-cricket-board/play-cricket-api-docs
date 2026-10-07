@@ -1,6 +1,6 @@
 # List League Sites
 
-Returns a list of all league (competition) sites registered on Play-Cricket, including their public-facing URLs.
+Returns the league (competition) sites you've been granted access to, including their public-facing URLs.
 
 **Endpoint**
 ```
@@ -58,6 +58,7 @@ GET https://www.play-cricket.com/api/v3/league_sites.json?api_token=YOUR_TOKEN
 
 ## Notes
 
-- This endpoint returns all league sites nationally. There is no filter parameter.
+- Only league sites you've been granted access to are returned. There is no filter parameter.
 - The `league_id` returned here is used as the `league_id` parameter when calling [List Divisions & Cups](./competitions.md).
-- This is a useful starting point if you do not know the ID of a league you want to query.
+- Use this endpoint to look up the `league_id` of a league you have access to.
+- If you have any queries about your access, or wish to request wider access, contact our support team.

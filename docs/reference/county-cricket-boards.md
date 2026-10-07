@@ -1,6 +1,6 @@
 # List County Cricket Boards
 
-Returns a list of all County Cricket Boards (CCBs) registered on Play-Cricket.
+Returns the County Cricket Boards (CCBs) you've been granted access to.
 
 **Endpoint**
 ```
@@ -61,5 +61,6 @@ GET https://www.play-cricket.com/api/v3/CCBs.json?api_token=YOUR_TOKEN
 
 ## Notes
 
-- This endpoint returns all CCBs nationally. There is no filter parameter.
+- Only CCBs you've been granted access to are returned. There is no filter parameter.
+- If you have any queries about your access, or wish to request wider access, contact our support team.
 - Use the `id` returned here as the `county_id` filter on the [List Clubs](./clubs.md) endpoint to retrieve clubs for a specific board.

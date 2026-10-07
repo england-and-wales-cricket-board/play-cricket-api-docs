@@ -1,6 +1,6 @@
 # List Clubs
 
-Returns a list of clubs registered on Play-Cricket, with optional filtering by county or last-updated date.
+Returns the clubs you've been granted access to, with optional filtering by county or last-updated date.
 
 **Endpoint**
 ```
@@ -22,7 +22,7 @@ GET https://www.play-cricket.com/api/v3/clubs.json
 
 ## Example Requests
 
-**All clubs nationally:**
+**All clubs you have access to:**
 ```
 GET https://www.play-cricket.com/api/v3/clubs.json?api_token=YOUR_TOKEN
 ```
@@ -78,6 +78,8 @@ GET https://www.play-cricket.com/api/v3/clubs.json?api_token=YOUR_TOKEN&from_ent
 
 ## Notes
 
+- Only clubs you've been granted access to are returned. Filters narrow this further; they do not widen it.
+- If you have any queries about your access, or wish to request wider access, contact our support team.
 - Club `id` values are stable and do not change between seasons.
 - To retrieve teams for a club, use the [Teams endpoint](./teams.md) with the club's `id` as the `site_id`.
 - Use `from_entry_date` and `end_entry_date` together to poll for clubs added or changed since your last sync. See [Common Patterns](../common-patterns.md) for guidance on date filtering.

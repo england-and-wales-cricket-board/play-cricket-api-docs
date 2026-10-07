@@ -15,7 +15,7 @@ GET https://www.play-cricket.com/api/v3/clubs.json?api_token=YOUR_TOKEN
 API tokens are generated from within the Play-Cricket administration area of your club or league site.
 
 1. Read the details [here](https://play-cricket.ecb.co.uk/hc/en-us/articles/115004270145-Do-You-Have-an-API-to-Access-Play-Cricket-Data)
-2. Request your token from our help desk team
+2. Request your token from our support team
 3. Sign and return the API access agreement
 4. Receive your token
 
@@ -25,12 +25,16 @@ Treat your API token like a password — do not expose it in client-side JavaScr
 
 ## Token Scope
 
-Your token is tied to your Play-Cricket site. The type of site determines what data is accessible:
+Your token lets you retrieve the data of the organisations you've been granted access to. It does not give access to every organisation on Play-Cricket.
+
+Access is typically granted as follows:
 
 | Site type | Access |
 |-----------|--------|
 | **Club site** | Data for teams and players associated with your club; fixtures and results for matches your club participates in |
 | **League (Competition) site** | Data across all clubs, teams, and matches in the leagues you administer |
+
+If you have any queries about your access, or wish to request wider access, contact our support team.
 
 Some endpoints require a `site_id` parameter. This is the numeric identifier for your Play-Cricket site, visible in the URL of your site's admin area.
 

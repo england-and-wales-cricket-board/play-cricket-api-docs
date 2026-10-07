@@ -19,7 +19,9 @@ https://www.play-cricket.com/api/v3/
 ```
 
 !!! info "Access required"
-    All requests require an API token. See [Authentication](authentication.md) for details on obtaining one.
+    All requests require an API token. Your token lets you retrieve the data of the organisations you've been granted access to. See [Authentication](authentication.md) for details on obtaining one.
+
+    If you have any queries about your access, or wish to request wider access, contact our support team.
 
 ---
 
@@ -69,9 +71,9 @@ https://www.play-cricket.com/api/v3/
 
 | Endpoint | Description |
 |----------|-------------|
-| [`GET /CCBs.json`](reference/county-cricket-boards.md) | List all County Cricket Boards |
-| [`GET /clubs.json`](reference/clubs.md) | List clubs, filtered by county or date |
-| [`GET /league_sites.json`](reference/league-sites.md) | List all league sites and their URLs |
+| [`GET /CCBs.json`](reference/county-cricket-boards.md) | List the County Cricket Boards you have access to |
+| [`GET /clubs.json`](reference/clubs.md) | List the clubs you have access to, filtered by county or date |
+| [`GET /league_sites.json`](reference/league-sites.md) | List the league sites you have access to, and their URLs |
 
 ### Teams & Players
 
